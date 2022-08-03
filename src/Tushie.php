@@ -36,9 +36,9 @@ trait Tushie
         $className = static::class;
         $dataPath = $instance->cacheReferencePath();
 
-        if (!$instance->shouldCache() ||
+        if ($instance->shouldCache() ? 
             (($entry = $instance->findMetadata($className)) !== null ? 
-            filemtime($dataPath) > $entry->data_path_mtime : true)) {
+            filemtime($dataPath) > $entry->data_path_mtime : true) : true) {
             $entry = $instance->refreshMetadata($className, filemtime($dataPath));
 
             $instance->migrate($entry);
