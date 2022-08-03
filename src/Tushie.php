@@ -1,6 +1,6 @@
 <?php
 
-namespace Mannum\Common\Concerns;
+namespace Tushie;
 
 use Closure;
 use Illuminate\Database\QueryException;
